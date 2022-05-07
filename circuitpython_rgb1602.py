@@ -1,6 +1,38 @@
-# -*- coding: utf-8 -*-
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+# SPDX-FileCopyrightText: Copyright (c) Waveshare
+# SPDX-FileCopyrightText: Copyright (c) 2022 Neradoc
+#
+# SPDX-License-Identifier: MIT
+"""
+`circuitpython_rgb1602`
+================================================================================
+
+Drive for Waveshare's I2C character display LCD1602.
+A port of Waveshare's Micropython library.
+
+
+* Author(s): Neradoc
+
+Implementation Notes
+--------------------
+
+**Hardware:**
+
+* `Waveshare LCD1602 RGB Module <https://www.waveshare.com/wiki/LCD1602_RGB_Module>`_
+
+**Software and Dependencies:**
+
+* Adafruit CircuitPython firmware for the supported boards:
+  https://circuitpython.org/downloads
+
+# * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
+"""
+
 import time
 from adafruit_bus_device.i2c_device import I2CDevice
+
+__version__ = "0.0.0-auto.0"
+__repo__ = "https://github.com/Neradoc/Circuitpython_Waveshare_RGB1602.git"
 
 # Device I2C Arress
 LCD_ADDRESS = 0x7C >> 1
