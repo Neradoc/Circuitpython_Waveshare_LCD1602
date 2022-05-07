@@ -63,15 +63,15 @@ class RGB1602:
 
     def command(self, cmd):
         with self.lcd_device:
-            self.lcd_device.write(bytes([0x80]) + chr(cmd).encode())
+            self.lcd_device.write(bytes([0x80]) + chr(cmd))
 
     def write(self, data):
         with self.lcd_device:
-            self.lcd_device.write(bytes([0x40]) + chr(data).encode())
+            self.lcd_device.write(bytes([0x40]) + chr(data))
 
     def setReg(self, reg, data):
         with self.rgb_device:
-            self.rgb_device.write(bytes([reg]) + chr(data).encode())
+            self.rgb_device.write(bytes([reg]) + chr(data))
 
     def setRGB(self, r, g, b):
         self.setReg(REG_RED, r)
