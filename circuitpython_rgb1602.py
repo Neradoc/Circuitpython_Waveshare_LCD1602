@@ -3,6 +3,9 @@
 # SPDX-FileCopyrightText: Copyright (c) 2022 Neradoc
 #
 # SPDX-License-Identifier: MIT
+#
+# In order to keep basic compatibility with the orifinal library, ignore "bad" names.
+# pylint: disable=invalid-name
 """
 `circuitpython_rgb1602`
 ================================================================================
@@ -24,12 +27,17 @@ Implementation Notes
 
 * Adafruit CircuitPython firmware for the supported boards:
   https://circuitpython.org/downloads
-
-# * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
+* Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 """
 
 import time
 from adafruit_bus_device.i2c_device import I2CDevice
+
+try:
+    from typing import Union
+    import busio
+except ImportError:
+    pass
 
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/Neradoc/Circuitpython_Waveshare_RGB1602.git"
@@ -80,37 +88,74 @@ LCD_8BITMODE = 0x10
 LCD_4BITMODE = 0x00
 LCD_2LINE = 0x08
 LCD_1LINE = 0x00
-LCD_5x8DOTS = 0x00
+LCD_5X8DOTS = 0x00
 
 
 class RGB1602:
-    def __init__(self, i2c, col, row):
+    """
+    Setup a new RGB LCD1602 display
+
+    :param busio.I2C i2c: I2C bus object to use.
+    :param int columns: The number of columns on the display.
+    :param int rows: The number of rows on the display.
+    """
+
+    def __init__(self, i2c: busio.I2C, columns: int, rows: int):
         self.lcd_device = I2CDevice(i2c, LCD_ADDRESS)
         self.rgb_device = I2CDevice(i2c, RGB_ADDRESS)
-        self._row = row
-        self._col = col
+        self._row = rows
+        self._col = columns
 
-        self._showfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS
+        self._showfunction = LCD_4BITMODE | LCD_1LINE | LCD_5X8DOTS
         self.begin(self._row, self._col)
 
-    def command(self, cmd):
+    def command(self, cmd: int):
+        """
+        Send a command.
+
+        :param int cmd: The command code.
+        """
         with self.lcd_device:
             self.lcd_device.write(bytes([0x80]) + chr(cmd))
 
-    def write(self, data):
+    def write(self, data: int):
+        """
+        Write a data byte.
+
+        :param int data: The data byte to write.
+        """
         with self.lcd_device:
             self.lcd_device.write(bytes([0x40]) + chr(data))
 
     def setReg(self, reg, data):
+        """
+        Set the value of a register.
+
+        :param int reg: The register to write to.
+        :param int data: The data byte to write.
+        """
         with self.rgb_device:
             self.rgb_device.write(bytes([reg]) + chr(data))
 
     def setRGB(self, r, g, b):
+        """
+        Set the color of the RGB backlight.
+
+        :param int r: Red byte.
+        :param int g: Green byte.
+        :param int b: Blue byte.
+        """
         self.setReg(REG_RED, r)
         self.setReg(REG_GREEN, g)
         self.setReg(REG_BLUE, b)
 
     def setCursor(self, col, row):
+        """
+        Place the cursor on the display.
+
+        :param int col: The column.
+        :param int row: The row.
+        """
         if row == 0:
             col |= 0x80
         else:
@@ -119,10 +164,16 @@ class RGB1602:
             self.lcd_device.write(bytearray([0x80, col]))
 
     def clear(self):
+        """Clear the display."""
         self.command(LCD_CLEARDISPLAY)
         time.sleep(0.002)
 
-    def printout(self, arg):
+    def printout(self, arg: Union[str, int]):
+        """
+        Print a string to the display. Ints are converted to strings.
+
+        :param str|int arg: The string or int to printout.
+        """
         if isinstance(arg, int):
             arg = str(arg)
 
@@ -130,14 +181,21 @@ class RGB1602:
             self.write(x)
 
     def display(self):
+        """Turn on the display."""
         self._showcontrol |= LCD_DISPLAYON
         self.command(LCD_DISPLAYCONTROL | self._showcontrol)
 
-    def begin(self, cols, lines):
-        if lines > 1:
+    def begin(self, columns: int, rows: int):  # pylint: disable=unused-argument
+        """
+        Initial configuration, called from init.
+
+        :param int columns: The number of columns on the display.
+        :param int rows: The number of rows on the display.
+        """
+        if rows > 1:
             self._showfunction |= LCD_2LINE
 
-        self._numlines = lines
+        self._numlines = rows
         self._currline = 0
 
         time.sleep(0.05)
@@ -173,4 +231,5 @@ class RGB1602:
         self.setColorWhite()
 
     def setColorWhite(self):
+        """Set the color of the RGB backlight to white."""
         self.setRGB(255, 255, 255)

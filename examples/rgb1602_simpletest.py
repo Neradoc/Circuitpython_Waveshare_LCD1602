@@ -4,10 +4,9 @@
 # SPDX-License-Identifier: Unlicense
 
 import time
-import math
 import board
-import circuitpython_rgb1602
 from rainbowio import colorwheel
+import circuitpython_rgb1602
 
 """Default I2C ports on boards that have one"""
 i2c = board.I2C()
@@ -17,9 +16,9 @@ lcd.setRGB(255, 255, 0)
 lcd.setCursor(0, 0)
 lcd.printout("Waveshare")
 lcd.setCursor(0, 1)
-lcd.printout(f"Hellow World !")
+lcd.printout("Hello World !")
 
 while True:
-    color = colorwheel(time.monotonic()*16)
+    color = colorwheel(time.monotonic() * 16)
     lcd.setRGB(color >> 16, (color >> 8) % 0x100, color % 0x100)
     time.sleep(1)
