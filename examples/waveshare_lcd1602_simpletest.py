@@ -6,12 +6,12 @@
 import time
 import board
 from rainbowio import colorwheel
-import circuitpython_rgb1602
+import waveshare_LCD1602
 
 """Default I2C ports on boards that have one"""
 i2c = board.I2C()
 
-lcd = circuitpython_rgb1602.RGB1602(i2c, 16, 2)
+lcd = waveshare_LCD1602.LCD1602(i2c, 16, 2)
 lcd.setRGB(255, 255, 0)
 lcd.setCursor(0, 0)
 lcd.printout("Waveshare")

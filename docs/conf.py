@@ -130,7 +130,7 @@ html_static_path = ["_static"]
 html_favicon = "_static/favicon.ico"
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "CircuitPython_rgb1602_Librarydoc"
+htmlhelp_basename = "CircuitPython_Waveshare_rgb1602_Librarydoc"
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -151,8 +151,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "CircuitPython_rgb1602_Library.tex",
-        "CircuitPython rgb1602 Library Documentation",
+        "CircuitPython_Waveshare_lcd1602_Library.tex",
+        "CircuitPython Waveshare LCD1602 Library Documentation",
         author,
         "manual",
     ),
@@ -165,8 +165,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "CircuitPython_rgb1602_Library",
-        "CircuitPython rgb1602 Library Documentation",
+        "CircuitPython_Waveshare_lcd1602_Library",
+        "CircuitPython Waveshare LCD1602 Library Documentation",
         [author],
         1,
     ),
@@ -180,10 +180,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "CircuitPython_rgb1602_Library",
-        "CircuitPython rgb1602 Library Documentation",
+        "CircuitPython_Waveshare_lcd1602_Library",
+        "CircuitPython Waveshare LCD1602 Library Documentation",
         author,
-        "CircuitPython_rgb1602_Library",
+        "CircuitPython_Waveshare_lcd1602_Library",
         "One line description of project.",
         "Miscellaneous",
     ),

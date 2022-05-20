@@ -7,12 +7,11 @@
 # In order to keep basic compatibility with the orifinal library, ignore "bad" names.
 # pylint: disable=invalid-name
 """
-`circuitpython_rgb1602`
+`waveshare_lcd1602`
 ================================================================================
 
 Drive for Waveshare's I2C character display LCD1602.
-A port of Waveshare's Micropython library.
-
+A port of Waveshare's RGB1602 Micropython library.
 
 * Author(s): Neradoc
 
@@ -40,7 +39,7 @@ except ImportError:
     pass
 
 __version__ = "0.0.0-auto.0"
-__repo__ = "https://github.com/Neradoc/Circuitpython_Waveshare_RGB1602.git"
+__repo__ = "https://github.com/Neradoc/Circuitpython_Waveshare_LCD1602.git"
 
 # Device I2C Arress
 LCD_ADDRESS = 0x7C >> 1
@@ -91,7 +90,7 @@ LCD_1LINE = 0x00
 LCD_5X8DOTS = 0x00
 
 
-class RGB1602:
+class LCD1602:
     """
     Setup a new RGB LCD1602 display
 

@@ -24,7 +24,7 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 
 setup(
     # Community Bundle Information
-    name="circuitpython-waveshare-rgb1602",
+    name="circuitpython-waveshare-lcd1602",
     use_scm_version={
         # This is needed for the PyPI version munging in the Github Actions release.yml
         "git_describe_command": "git describe --tags --long",
@@ -35,7 +35,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/x-rst",
     # The project's main homepage.
-    url="https://github.com/Neradoc/Circuitpython_Waveshare_RGB1602.git",
+    url="https://github.com/Neradoc/Circuitpython_Waveshare_LCD1602.git",
     # Author details
     author="Neradoc",
     author_email="",  # TODO: Add your email here
@@ -60,5 +60,5 @@ setup(
     # simple. Or you can use find_packages().
     # TODO: IF LIBRARY FILES ARE A PACKAGE FOLDER,
     #       CHANGE `py_modules=['...']` TO `packages=['...']`
-    py_modules=["circuitpython_rgb1602"],
+    py_modules=["waveshare_lcd1602"],
 )

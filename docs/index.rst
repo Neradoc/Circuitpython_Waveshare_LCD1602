@@ -32,7 +32,7 @@ Table of Contents
 .. toctree::
     :caption: Other Links
 
-    Download from GitHub <https://github.com/Neradoc/Circuitpython_Waveshare_RGB1602/releases/latest>
+    Download from GitHub <https://github.com/Neradoc/Circuitpython_Waveshare_LCD1602/releases/latest>
     Download Library Bundle <https://circuitpython.org/libraries>
     CircuitPython Reference Documentation <https://docs.circuitpython.org>
     CircuitPython Support Forum <https://forums.adafruit.com/viewforum.php?f=60>

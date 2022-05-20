@@ -2,8 +2,8 @@ Introduction
 ============
 
 
-.. image:: https://readthedocs.org/projects/circuitpython-rgb1602/badge/?version=latest
-    :target: https://circuitpython-rgb1602.readthedocs.io/
+.. image:: https://readthedocs.org/projects/circuitpython-waveshare-lcd1602/badge/?version=latest
+    :target: https://circuitpython-waveshare-lcd1602.readthedocs.io/
     :alt: Documentation Status
 
 
@@ -13,8 +13,8 @@ Introduction
     :alt: Discord
 
 
-.. image:: https://github.com/Neradoc/CircuitPython_rgb1602/workflows/Build%20CI/badge.svg
-    :target: https://github.com/Neradoc/CircuitPython_rgb1602/actions
+.. image:: https://github.com/Neradoc/CircuitPython_Waveshare_LCD1602/workflows/Build%20CI/badge.svg
+    :target: https://github.com/Neradoc/CircuitPython_Waveshare_LCD1602/actions
     :alt: Build Status
 
 
@@ -42,18 +42,18 @@ Installing from PyPI
 =====================
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
-PyPI <https://pypi.org/project/circuitpython-waveshare-rgb1602/>`_.
+PyPI <https://pypi.org/project/circuitpython-waveshare-lcd1602/>`_.
 To install for current user:
 
 .. code-block:: shell
 
-    pip3 install circuitpython-waveshare-rgb1602
+    pip3 install circuitpython-waveshare-lcd1602
 
 To install system-wide (this may be required in some cases):
 
 .. code-block:: shell
 
-    sudo pip3 install circuitpython-waveshare-rgb1602
+    sudo pip3 install circuitpython-waveshare-lcd1602
 
 To install in a virtual environment in your current project:
 
@@ -62,7 +62,7 @@ To install in a virtual environment in your current project:
     mkdir project-name && cd project-name
     python3 -m venv .env
     source .env/bin/activate
-    pip3 install circuitpython-waveshare-rgb1602
+    pip3 install circuitpython-waveshare-lcd1602
 
 
 
@@ -81,7 +81,7 @@ following command to install:
 
 .. code-block:: shell
 
-    circup install circuitpython_rgb1602
+    circup install waveshare_lcd1602
 
 Or the following command to update an existing version:
 
@@ -93,7 +93,7 @@ Usage Example
 =============
 
 .. python:
-    import circuitpython_rgb1602
+    import waveshare_lcd1602
     import time
     import math
     import board
@@ -107,7 +107,7 @@ Usage Example
     """Default pins used by the original code for pico"""
     # i2c = busio.I2C(board.GP5, board.GP4)
 
-    lcd = circuitpython_rgb1602.RGB1602(i2c, 16, 2)
+    lcd = waveshare_lcd1602.LCD1602(i2c, 16, 2)
     lcd.setRGB(255, 255, 0)
     lcd.setCursor(0, 0)
     lcd.printout("Waveshare")
@@ -122,7 +122,7 @@ Usage Example
 
 Documentation
 =============
-API documentation for this library can be found on `Read the Docs <https://circuitpython-rgb1602.readthedocs.io/>`_.
+API documentation for this library can be found on `Read the Docs <https://circuitpython-waveshare-lcd1602.readthedocs.io/>`_.
 
 For information on building library documentation, please check out
 `this guide <https://learn.adafruit.com/creating-and-sharing-a-circuitpython-library/sharing-our-docs-on-readthedocs#sphinx-5-1>`_.
@@ -131,5 +131,5 @@ Contributing
 ============
 
 Contributions are welcome! Please read our `Code of Conduct
-<https://github.com/Neradoc/Circuitpython_Waveshare_RGB1602/blob/HEAD/CODE_OF_CONDUCT.md>`_
+<https://github.com/Neradoc/Circuitpython_Waveshare_LCD1602/blob/HEAD/CODE_OF_CONDUCT.md>`_
 before contributing to help this project stay welcoming.
