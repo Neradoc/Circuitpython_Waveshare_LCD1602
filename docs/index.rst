@@ -27,7 +27,7 @@ Table of Contents
 .. toctree::
     :caption: Related Products
 
-    * `Waveshare LCD1602 RGB Module <https://www.waveshare.com/wiki/LCD1602_RGB_Module>`_
+    Waveshare LCD1602 RGB Module <https://www.waveshare.com/wiki/LCD1602_RGB_Module>
 
 .. toctree::
     :caption: Other Links
