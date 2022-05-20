@@ -2,8 +2,8 @@ Introduction
 ============
 
 
-.. image:: https://readthedocs.org/projects/circuitpython-waveshare-lcd1602/badge/?version=latest
-    :target: https://circuitpython-waveshare-lcd1602.readthedocs.io/
+.. image:: https://readthedocs.org/projects/waveshare-lcd1602-circuitpython-driver/badge/?version=latest
+    :target: https://waveshare-lcd1602-circuitpython-driver.readthedocs.io/
     :alt: Documentation Status
 
 
