@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
 
+
 import os
 import sys
+import datetime
 
 sys.path.insert(0, os.path.abspath(".."))
 
@@ -26,18 +28,22 @@ extensions = [
 # digitalio, micropython and busio. List the modules you use. Without it, the
 # autodoc module docs will fail to generate with a warning.
 autodoc_mock_imports = [
+    "digitalio",
     "board",
     "busio",
+    "adafruit_bus_device",
+    "micropython",
 ]
+
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
-    "BusDevice": ("https://docs.circuitpython.org/projects/busdevice/en/latest/", None),
+    "BusDevice": (
+        "https://docs.circuitpython.org/projects/busdevice/en/latest/",
+        None,
+    ),
     "CircuitPython": ("https://docs.circuitpython.org/en/latest/", None),
 }
-
-# Show the docstring from both the class and its __init__() method.
-autoclass_content = "both"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -66,7 +72,7 @@ release = "1.0"
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
