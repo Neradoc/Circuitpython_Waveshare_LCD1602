@@ -20,5 +20,5 @@ lcd.printout("Hello World !")
 
 while True:
     color = colorwheel(time.monotonic() * 16)
-    lcd.setRGB(color >> 16, (color >> 8) % 0x100, color % 0x100)
+    lcd.setRGB(*color.to_bytes(3, "big"))
     time.sleep(1)
