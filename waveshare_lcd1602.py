@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
 # SPDX-FileCopyrightText: Copyright (c) Waveshare
-# SPDX-FileCopyrightText: Copyright (c) 2022 Neradoc
+# SPDX-FileCopyrightText: Copyright (c) 2025 Neradoc
 #
 # SPDX-License-Identifier: MIT
 #
@@ -30,10 +30,12 @@ Implementation Notes
 """
 
 import time
+
 from adafruit_bus_device.i2c_device import I2CDevice
 
 try:
     from typing import Union
+
     import busio
 except ImportError:
     pass
