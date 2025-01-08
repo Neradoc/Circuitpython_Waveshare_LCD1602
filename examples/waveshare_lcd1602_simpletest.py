@@ -6,9 +6,8 @@
 import time
 
 import board
-from rainbowio import colorwheel
-
 import waveshare_LCD1602
+from rainbowio import colorwheel
 
 """Default I2C ports on boards that have one"""
 i2c = board.I2C()
