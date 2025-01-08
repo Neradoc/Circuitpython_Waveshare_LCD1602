@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-
 # SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
 
+import datetime
 import os
 import sys
-import datetime
 
 sys.path.insert(0, os.path.abspath(".."))
 
@@ -39,8 +37,8 @@ autodoc_preserve_defaults = True
 
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),"BusDevice": ("https://docs.circuitpython.org/projects/busdevice/en/latest/", None),
-    
+    "python": ("https://docs.python.org/3", None),
+    "BusDevice": ("https://docs.circuitpython.org/projects/busdevice/en/latest/", None),
     "CircuitPython": ("https://docs.circuitpython.org/en/latest/", None),
 }
 
@@ -60,9 +58,7 @@ project = "CircuitPython Waveshare LCD1602 Library"
 creation_year = "2025"
 current_year = str(datetime.datetime.now().year)
 year_duration = (
-    current_year
-    if current_year == creation_year
-    else creation_year + " - " + current_year
+    current_year if current_year == creation_year else creation_year + " - " + current_year
 )
 copyright = year_duration + " Neradoc"
 author = "Neradoc"
