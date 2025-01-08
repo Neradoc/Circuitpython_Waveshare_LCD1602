@@ -7,7 +7,7 @@ line-length = 100
 
 [lint]
 select = ["I", "PL", "UP"]
-preview = true
+# preview = true
 
 extend-select = [
   "D419",  # empty-docstring
@@ -98,4 +98,3 @@ ignore = [
 
 [format]
 line-ending = "lf"
-preview = true
