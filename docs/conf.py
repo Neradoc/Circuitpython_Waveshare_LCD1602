@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
-
 
 import os
 import sys
@@ -18,9 +17,9 @@ sys.path.insert(0, os.path.abspath(".."))
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinxcontrib.jquery",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
-    "sphinxcontrib.jquery",
     "sphinx.ext.todo",
 ]
 
@@ -36,15 +35,17 @@ autodoc_mock_imports = [
     "micropython",
 ]
 
+autodoc_preserve_defaults = True
+
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "BusDevice": (
-        "https://docs.circuitpython.org/projects/busdevice/en/latest/",
-        None,
-    ),
+    "python": ("https://docs.python.org/3", None),"BusDevice": ("https://docs.circuitpython.org/projects/busdevice/en/latest/", None),
+    
     "CircuitPython": ("https://docs.circuitpython.org/en/latest/", None),
 }
+
+# Show the docstring from both the class and its __init__() method.
+autoclass_content = "both"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -55,8 +56,15 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "CircuitPython RGB1602 Library"
-copyright = "2022 Neradoc"
+project = "CircuitPython Waveshare LCD1602 Library"
+creation_year = "2025"
+current_year = str(datetime.datetime.now().year)
+year_duration = (
+    current_year
+    if current_year == creation_year
+    else creation_year + " - " + current_year
+)
+copyright = year_duration + " Neradoc"
 author = "Neradoc"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -111,18 +119,9 @@ napoleon_numpy_docstring = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-on_rtd = os.environ.get("READTHEDOCS", None) == "True"
+import sphinx_rtd_theme
 
-if not on_rtd:  # only import and set the theme if we're building docs locally
-    try:
-        import sphinx_rtd_theme
-
-        html_theme = "sphinx_rtd_theme"
-    except:
-        html_theme = "default"
-        html_theme_path = ["."]
-else:
-    html_theme_path = ["."]
+html_theme = "sphinx_rtd_theme"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -136,7 +135,7 @@ html_static_path = ["_static"]
 html_favicon = "_static/favicon.ico"
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "CircuitPython_Waveshare_rgb1602_Librarydoc"
+htmlhelp_basename = "CircuitPython_Waveshare_lcd1602_Librarydoc"
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -157,7 +156,7 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "CircuitPython_Waveshare_lcd1602_Library.tex",
+        "CircuitPython_waveshare_lcd1602_Library.tex",
         "CircuitPython Waveshare LCD1602 Library Documentation",
         author,
         "manual",
@@ -171,7 +170,7 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "CircuitPython_Waveshare_lcd1602_Library",
+        "CircuitPython_waveshare_lcd1602_Library",
         "CircuitPython Waveshare LCD1602 Library Documentation",
         [author],
         1,
@@ -186,10 +185,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "CircuitPython_Waveshare_lcd1602_Library",
+        "CircuitPython_waveshare_lcd1602_Library",
         "CircuitPython Waveshare LCD1602 Library Documentation",
         author,
-        "CircuitPython_Waveshare_lcd1602_Library",
+        "CircuitPython_waveshare_lcd1602_Library",
         "One line description of project.",
         "Miscellaneous",
     ),

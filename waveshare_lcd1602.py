@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: MIT
 #
-# In order to keep basic compatibility with the orifinal library, ignore "bad" names.
+# In order to keep basic compatibility with the original library, ignore "bad" names.
 # pylint: disable=invalid-name
 """
 `waveshare_lcd1602`

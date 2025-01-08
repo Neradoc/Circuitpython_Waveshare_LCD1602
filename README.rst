@@ -22,7 +22,7 @@ Introduction
     :target: https://github.com/psf/black
     :alt: Code Style: Black
 
-Driver for Waveshare's I2C character display LCD1602
+Driver for Waveshare's I2C RGB character display LCD1602
 
 
 Dependencies
