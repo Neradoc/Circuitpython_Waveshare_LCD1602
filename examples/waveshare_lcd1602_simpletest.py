@@ -1,11 +1,13 @@
 # SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
-# SPDX-FileCopyrightText: Copyright (c) 2022 Neradoc
+# SPDX-FileCopyrightText: Copyright (c) 2025 Neradoc
 #
 # SPDX-License-Identifier: Unlicense
 
 import time
+
 import board
 from rainbowio import colorwheel
+
 import waveshare_LCD1602
 
 """Default I2C ports on boards that have one"""
